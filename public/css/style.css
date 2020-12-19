@@ -1,0 +1,118 @@
+html, body {
+    background-color: #fff;
+    color: #636b6f;
+    font-family: 'Nunito', sans-serif;
+    font-weight: bold;
+}
+
+#wrapper {
+    background-image: url("/images/town.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+}
+
+#transparent {
+    height: 100%;
+    background: rgba(255,255,255,0.5);
+}
+
+/* header領域 */
+header {
+    height: 80px;
+    width: 100%;
+    text-align: center;
+    background-color: #fff;
+}
+
+header h1 {
+    line-height: 80px;
+    font-weight: bold;
+    color:#000;
+}
+
+header img {
+    width: 45px;
+    height: 45px;
+    padding: 0 5px 5px 5px;
+}
+
+.full-height {
+    height: 100vh;
+}
+
+.flex-center {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.position-ref {
+    position: relative;
+}
+
+.top-right {
+    position: absolute;
+    right: 10px;
+    top: 18px;
+}
+
+/* content領域 */
+.content {
+    text-align: center;
+    font-weight: bold;
+}
+
+.title {
+    font-size: 84px;
+}
+
+.links > a {
+    color: #636b6f;
+    padding: 0 25px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.m-b-md {
+    margin-bottom: 30px;
+}
+
+.content a {
+    color:#000;
+}
+
+.content ::placeholder {
+    text-align: center;
+}
+
+.content a:hover, .content input:hover {
+    text-decoration: none;
+    background-color: #000;
+    color:#fff;
+}
+
+/* 背景色を白で打ち消し */
+input[type="text"]:hover, input[type="password"]:hover {
+    background-color: #fff;
+    color:#000;
+}
+
+/* .menu {
+    background-color:#fff;
+} */
+
+/* footer領域 */
+footer {
+    height: 80px;
+    text-align: center;
+    background-color: #fff;
+}
+
+footer small {
+    line-height: 80px;
+    color:#000;
+}
