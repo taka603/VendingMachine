@@ -22,10 +22,10 @@ class VendingMachineController extends Controller
     public function insert(Request $request){
         //バリデーション
         $request->validate([
-            'money' => 'required',
-        ],[
-            'money.required' => 'お金を入力してください'
-        ]);
+            'money' => ['required', 'integer']],
+            ['money.required' => 'お金を入力してください'],
+            [ 'money.string' => '数値を入力して下さい。']
+        );
 
         //moneyの値だけを取得して入金処理
         Bank::deposit($request->only('money')['money']);
@@ -35,11 +35,6 @@ class VendingMachineController extends Controller
 
     public function refund(Request $request){
         $bool = Bank::refund();
-
-        // 返金金額の有無
-        $request->validate([
-            ''
-        ]);
 
         return redirect()->route('index')->with('bool', $bool);
     }
