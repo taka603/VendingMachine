@@ -1,12 +1,15 @@
 @extends("layouts.layout")
 
 @section("content")
-    <div class="content">
+    <div id="content">
+        <h2>会員情報入力</h2>
         <form action="{{ route('register') }}" method="post">
             @csrf
-            <input type="text" class="form-control mt-2" name="email" placeholder="emailを入力してください">
-            <input type="password" class="form-control mt-2" name="password" placeholder="PASSWORDを入力してください">
-            <input type="submit" value="登録" class="form-control mt-5">
+            <label for="email">メールアドレス</label>
+            <input type="text" class="authArea" id="email" name="email" placeholder="emailを入力してください">
+            <label for="password">パスワード</label>
+            <input type="password" class="authArea" id="password" name="password" placeholder="PASSWORDを入力してください">
+            <input type="submit" value="登録" class="authSubmit">
         </form>
     </div>
 @endsection

@@ -8,7 +8,7 @@ class Depot extends Model
 {
     //setter
     public function setMerchandise($name, $price, $stock){
-        //インスタンスを生成して引数の値を各箇所に格納
+        //インスタンスを生成して引数の値を格納
         $depot = new self();
         $depot->name = $name;
         $depot->price = $price;

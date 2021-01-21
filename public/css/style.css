@@ -1,10 +1,12 @@
 html, body {
-    background-color: #fff;
-    color: #636b6f;
+    padding: 0;
+    margin: 0;
     font-family: 'Nunito', sans-serif;
+    text-align: center;
     font-weight: bold;
 }
 
+/* 背景画像配置 */
 #wrapper {
     background-image: url("/images/town.jpg");
     background-size: cover;
@@ -12,6 +14,7 @@ html, body {
     height: 100%;
 }
 
+/* 背景画像を半透明化 */
 #transparent {
     height: 100%;
     background: rgba(255,255,255,0.5);
@@ -19,80 +22,118 @@ html, body {
 
 /* header領域 */
 header {
-    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    height: 70px;
     width: 100%;
-    text-align: center;
     background-color: #fff;
 }
 
 header h1 {
-    line-height: 80px;
-    font-weight: bold;
-    color:#000;
-}
-
-header img {
-    width: 45px;
-    height: 45px;
-    padding: 0 5px 5px 5px;
-}
-
-.full-height {
-    height: 100vh;
-}
-
-.flex-center {
-    align-items: center;
     display: flex;
     justify-content: center;
-}
-
-.position-ref {
     position: relative;
+    line-height: 70px;
 }
 
-.top-right {
-    position: absolute;
-    right: 10px;
-    top: 18px;
+/* タイトルロゴ前 */
+header h1.titleLogo::before {
+    content: "";
+    display: inline-block;
+    height: 45px;
+    width: 45px;
+    background-image: url(/images/vendingMachine.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin: 10px -5px 0 0;
+  }
+
+/* タイトルロゴ後ろ */
+ header h1.titleLogo::after {
+    content: "";
+    display: inline-block;
+    height: 45px;
+    width: 45px;
+    background-image: url(/images/vendingMachine.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin: 10px 0 0 10px;
+  
+  } 
+
+  /* ログイン、登録、ログアウトボタン */
+  header ul {
+      display: flex;
+      position: absolute;
+      right: 10px;
+      list-style: none;
+      
+  }
+
+  header ul li {
+      padding-right: 10px;
+  }
+
+  header ul li a  {
+    border: 1px solid #000;
+    border-radius: 10px;
+    font-size: 25px;
+    text-decoration: none;
+    padding: 10px;
 }
+
+ header a:visited {
+    color: #888;
+}
+/* header領域終了 */
 
 /* content領域 */
 .content {
-    text-align: center;
-    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 700px;
+    width: 100%;
+    padding-top: 70px;   /* fixed指定のheaderとの重なり回避 */
+
 }
 
-.title {
-    font-size: 84px;
+.content h2 {
+    margin: 10px 0 50px 0;
 }
 
-.links > a {
-    color: #636b6f;
-    padding: 0 25px;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: .1rem;
-    text-decoration: none;
-    text-transform: uppercase;
+.content ul {
+    display: flex;
+    list-style:none;
 }
 
-.m-b-md {
-    margin-bottom: 30px;
+.content ul li {
+    margin: 10px;
 }
 
-.content a {
-    color:#000;
-}
-
-.content ::placeholder {
-    text-align: center;
-}
-
-.content a:hover, .content input:hover {
+/* マウスをかざした時の効果 */
+header a:hover, .content input:hover {
     text-decoration: none;
     background-color: #000;
     color:#fff;
+}
+
+.content input {
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* placeholderを中央揃え */
+.content input::placeholder {
+    text-align: center;
+}
+
+/* submitに影をつける */
+.content input[type="submit"] {
+    box-shadow: 3px 3px 3px gray;
 }
 
 /* 背景色を白で打ち消し */
@@ -100,19 +141,52 @@ input[type="text"]:hover, input[type="password"]:hover {
     background-color: #fff;
     color:#000;
 }
+/* content領域終了 */
 
-/* .menu {
-    background-color:#fff;
-} */
+/* トップページ領域 */
+#depotsList {
+    display: flex;
+    font-weight: bold;
+}
+
+/* 購入ボタン */
+.purchase {
+    height: 30px;
+    width: 60px;
+}
+
+/* 入金額入力、入金ボタン、返金ボタン */
+.topArea {
+    height:35px;
+    width: 200px;
+    margin: 5px;
+   
+}
+/* トップページ領域終了 */
+
+/* 登録、ログインページ */
+.authArea {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    height: 25px;
+    margin-bottom: 30px;
+}
+
+/* 登録、ログインページ送信ボタン */
+.authSubmit {
+    width: 80px;
+    height: 35px;
+    font-weight: bold;
+}
 
 /* footer領域 */
 footer {
     height: 80px;
-    text-align: center;
     background-color: #fff;
 }
 
 footer small {
     line-height: 80px;
-    color:#000;
 }
+/* footer領域終了 */

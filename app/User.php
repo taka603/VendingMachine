@@ -42,7 +42,7 @@ class User extends Authenticatable
     public function register($email, $pw){
         $ins = new self();
         $ins->email = $email;
-        $ins->password = Hash::make($pw);
+        $ins->password = Hash::make($pw);   //password更新機能実装
         $ins->save();
     }
 }

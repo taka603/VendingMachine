@@ -8,6 +8,7 @@ class Bank extends Model
 {
     //入金処理
     public function deposit($insertMoney){
+        //moneyレコードに値があるかで分岐
         if($this->first()){
             $i = $this->first();
             $i->money += $insertMoney;
@@ -21,6 +22,7 @@ class Bank extends Model
 
     //返金処理
     public function refund(){
+        //Bankに入金されているかの分岐
         if($i = $this->first()){
             $i->money = 0;
             $i->save();

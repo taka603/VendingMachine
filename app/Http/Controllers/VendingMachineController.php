@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-// use App\Http\Requests\VMRequest;
 use Facades\App\Depot;
 use Facades\App\Bank;
 use Illuminate\Http\Request;
@@ -10,43 +9,38 @@ use Illuminate\Http\Request;
 class VendingMachineController extends Controller
 {
     public function index(Request $request){
-        //投入金額格納
-        $b = Bank::first();
+        //Bankモデルからmoneyレコード取得
+        $bank = Bank::first();
 
         return view('welcome')->with([
-            'money' => $b ? $b->money : null,
+            'money' => $bank ? $bank->money : null,  //$bankに入金されているかで分岐
             'merchandise' => Depot::get(),  //depotsレコード取得
         ]);
     }
-    // |"/^[1-9]0$|^[1-9][0-9]0$|^1000$/"
-    public function insert(Request $request){
-        //バリデーション
-        $request->validate([
-            'money' => ['required', 'integer']],
-            ['money.required' => 'お金を入力してください'],
-            [ 'money.string' => '数値を入力して下さい。']
-        );
 
-        //moneyの値だけを取得して入金処理
+    public function insert(Request $request){
+        //moneyの値を取得して入金処理
         Bank::deposit($request->only('money')['money']);
 
-        return redirect()->route('index');
+        return redirect()->route('index')->with('money');
     }
 
     public function refund(Request $request){
+        //返金処理メソッド呼び出し
         $bool = Bank::refund();
 
         return redirect()->route('index')->with('bool', $bool);
     }
 
+    //商品追加
     public function setMerchandise(Request $request){
-        //各値を取り出す
+        //formで入力した情報を渡す
         Depot::setMerchandise(
             $request->get('name'),
             $request->get('price'),
             $request->get('stock')
         );
-
+        
         return redirect()->route('index');
     }
 
@@ -65,6 +59,15 @@ class VendingMachineController extends Controller
         Bank::purchase($inputAmount, $purchaseDepot->price);
         //購入商品の在庫−１
         Depot::purchase($purchaseDepot);
+
+        return redirect()->route('index');
+    }
+
+    //商品削除
+    public function delete(Request $request){
+        //requestで送信されたidに該当する商品を渡す
+        $selectDepot = Depot::find($request->get('id'));
+        $selectDepot->delete();
 
         return redirect()->route('index');
     }

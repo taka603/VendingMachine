@@ -23,6 +23,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        //herokuの通信プロトコルをhttpsに変更するための記述
+        if (\App::environment('production')) {
+            \URL::forceScheme('https');
+        }
     }
 }

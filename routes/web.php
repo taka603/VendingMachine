@@ -14,17 +14,20 @@
 |
 */
 
+use App\Http\Controllers\VendingMachineController;
+
 Route::get('/', 'VendingMachineController@index')->name('index');
 Route::post('/insert', 'VendingMachineController@insert')->name('deposit');
 Route::post('/refund', 'VendingMachineController@refund')->name('refund');
 
-Route::post('/set/merchandise', 'VendingMachineController@setMerchandise')->name('set_merchandise');
+Route::post('/set_merchandise', 'VendingMachineController@setMerchandise')->name('set_merchandise');
 Route::post('/purchase', 'VendingMachineController@purchase')->name('purchase');
+Route::post('/delete', 'VendingMachineController@delete')->name('delete');
 
 Route::view('/login', 'login')->middleware('guest');
 Route::post('/login', 'AuthController@login')->name('login');
 
-// Route::view('/register', 'register');
-// Route::post('/register', 'AuthController@register')->name('register');
+Route::view('/register', 'register');
+Route::post('/register', 'AuthController@register')->name('register');
 
-Route::get('/logout', 'AuthController@logout');
+Route::get('/logout', 'AuthController@logout')->name('logout');
