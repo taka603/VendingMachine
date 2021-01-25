@@ -2,12 +2,6 @@
 
 use Illuminate\Support\Str;
 
-//例外処理
-try{
-    $db=new PDO('mysql:dbname=heroku_c65002b891d3926;host=cdbr-east-03.cleardb.com;charset=utf8','bc279f0d85593f','4d5dacad');
-}catch(PDOException $e){
-    print('DB接続エラー:'.$e->getMessage());
-}
 
 return [
 

@@ -19,7 +19,7 @@ class CreateDepotsTable extends Migration
             $table->integer('price');
             $table->integer('stock');
             $table->timestamp('created_at');
-            $table->timestamps('updated_at');
+            $table->timestamp('updated_at');
         });
     }
 
