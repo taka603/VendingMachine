@@ -5,12 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@yield("title", "VendingMachine")</title>
     <!-- Fonts -->
-    @if(app('env') == 'production')
-    <link href="{{ secure_asset('style/app.css') }}" rel="stylesheet">
-    @else
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-    @endif
-    <!-- <link rel="stylesheet" href="{{ asset('css/style.css') }}"> -->
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <!-- タイトルバー画像表示 -->
     <link rel="icon" type="image/x-icon" href="/images/juice.jpg">
 </head>

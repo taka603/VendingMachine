@@ -27,8 +27,8 @@ class AppServiceProvider extends ServiceProvider
         Schema::defaultStringLength(191);
 
         //herokuの通信プロトコルをhttpsに変更するための記述
-        if (\App::environment('production')) {
-            \URL::forceScheme('https');
-        }
+        // if (\App::environment('production')) {
+        //     \URL::forceScheme('https');
+        // }
     }
 }
