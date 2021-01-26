@@ -12,11 +12,13 @@ html, body {
     background-size: cover;
     background-repeat: no-repeat;
     height: 100%;
+    width: 100%;
 }
 
 /* 背景画像を半透明化 */
 #transparent {
     height: 100%;
+    width: 100%;
     background: rgba(255,255,255,0.5);
 }
 
@@ -69,7 +71,6 @@ header h1.titleLogo::before {
       position: absolute;
       right: 10px;
       list-style: none;
-      
   }
 
   header ul li {
@@ -89,6 +90,7 @@ header h1.titleLogo::before {
 }
 /* header領域終了 */
 
+
 /* content領域 */
 .content {
     display: flex;
@@ -98,11 +100,10 @@ header h1.titleLogo::before {
     height: 700px;
     width: 100%;
     padding-top: 70px;   /* fixed指定のheaderとの重なり回避 */
-
 }
 
 .content h2 {
-    margin: 10px 0 50px 0;
+    margin: 10px 0 40px 0;
 }
 
 .content ul {
@@ -190,3 +191,67 @@ footer small {
     line-height: 80px;
 }
 /* footer領域終了 */
+
+/* レスポンシブ対応 */
+@media (max-width: 670px)
+{
+    /* 余白削除 */
+    #wrapper {
+        overflow: hidden;
+    }
+
+    header {
+        height: 12%;
+        position: fixed;
+    }
+
+     header h1 {
+        bottom:15px;
+        font-size: 12px;
+    }
+
+    header ul  {
+        top: 40px;
+    }
+
+    header ul li a {
+        font-size: 8px;
+    }
+
+    .content  {
+        width: 100%;
+        padding-top: 15%;
+        padding-bottom: 15%;
+        font-size: 10px;
+    }
+
+    .content ul  {
+        display: flex;
+        flex-flow: column;
+        margin:0;
+    }
+
+    .content ul li h3 {
+        padding-right: 30px;
+    }
+
+    #depotsList {
+        padding-right: 40px;
+    }
+
+    #depotsList form {
+        width: 55px;
+    }
+
+
+    footer {
+        position: relative;
+        height: 10%x;
+        width: 100%;
+        padding-top: 10px;
+    }
+
+    footer small {
+        line-height: 3%;
+    }
+}

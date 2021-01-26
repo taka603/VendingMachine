@@ -1,7 +1,7 @@
 @extends("layouts.layout")
 
 @section("content")
-<div id="content">
+<div class="content">
     <h2>購入画面</h2>
     @if(session('empty'))
      <h1>お金が足りません</h1>

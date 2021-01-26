@@ -1,7 +1,7 @@
 @extends("layouts.layout")
 
 @section("content")
-    <div id="content">
+    <div class="content">
         <h2>ログイン情報入力</h2>
         <form action="{{ route('login') }}" method="post">
             @csrf

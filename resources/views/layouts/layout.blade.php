@@ -5,12 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@yield("title", "VendingMachine")</title>
     <!-- Fonts -->
-    @if(app('env') == 'production')
-    <link href="{{ secure_asset('css/style.css') }}" rel="stylesheet">
+    @if(app('env') == 'production') 
+    <link href="{{ secure_asset('css/style.css') }}" rel="stylesheet">  <!-- 本番環境時のcss -->
     @else
-        <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/style.css') }}" rel="stylesheet">     <!-- ローカル環境時のcss -->
     @endif
-    <!-- <link rel="stylesheet" href="{{ asset('css/style.css') }}"> -->
     <!-- タイトルバー画像表示 -->
     <link rel="icon" type="image/x-icon" href="/images/juice.jpg">
 </head>
@@ -32,9 +31,9 @@
                 </ul>
                 @endauth
             </header>
-            <div class="content">
+            <main>
             @yield("content")
-            </div>
+            </main>
         </div>      
     </div>
     <footer>
@@ -45,4 +44,3 @@
     </script>
 </body>
 </html>
-   
