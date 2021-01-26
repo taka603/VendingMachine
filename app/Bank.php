@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Bank extends Model
 {
+    // protected $table = ''
+
     //入金処理
     public function deposit($insertMoney){
         //moneyレコードに値があるかで分岐
